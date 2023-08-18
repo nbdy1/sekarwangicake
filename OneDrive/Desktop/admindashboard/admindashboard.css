@@ -1,0 +1,381 @@
+html{
+    font-family:'DM Sans';
+}
+body{
+    margin-left:0px;
+    margin-top:0px;
+}
+.sidebar{
+    width:240px;
+    height:1445px;
+    background-color:#AE4CD4;
+    float:left;
+}
+.dashboardtitle{
+    font-size:24px;
+    color:#FFFFFF;
+    padding-left:11px;
+    padding-top:69px;
+}
+.dashboarddropdown{
+    padding-top:0px;
+    text-align:left;
+    background-color:#AE4CD4;
+    color:#FFFFFF;
+    font-family:'DM Sans';
+    font-size:14px;
+    text-align:left;
+    width:100%;
+    padding-left:24px;
+    border:none;
+}
+.dashboardoption{
+    background-color:#AE4CD4;
+    color:#FFFFFF;
+    font-family:'DM Sans';
+    font-size:14px;
+    text-align:left;
+    width:100%;
+    padding-left:44px;
+    border:none;
+}
+.layoutsandpages{
+    padding-left:11px;
+    font-size:14px;
+    color:#FFFFFF;
+    padding-top:24px;
+}
+.products{
+    padding-left:24px;
+    color:#FFFFFF;
+    font-family:'DM Sans';
+    border:none;
+    background-color:#AE4CD4;
+    text-align:left;
+}
+.productoption{
+    background-color:#AE4CD4;
+    color:#FFFFFF;
+    font-family:'DM Sans';
+    font-size:14px;
+    text-align:left;
+    padding-left:44px;
+    border:none;
+}
+.admintitle{
+    font-family:'DM Sans';
+    color:#FFFFFF;
+    font-size:24px;
+    padding-left:11px;
+}
+.dashboardoption:hover{
+    background-color:#8438cc;
+    width:240px;
+    transition:0.5s;
+}
+.productoption:hover{
+    background-color:#8438cc;
+    width:240px;
+    transition:0.5s;
+}
+.dashboarddropdown:hover{
+    background-color:#8438cc;
+    width:240px;
+    transition:0.5s;
+}
+.products:hover{
+    background-color:#8438cc;
+    width:240px;
+    transition:0.5s;
+}
+#accountmenu{
+    float:left;
+    font-family:'DM Sans';
+    padding-top:25px;
+    padding-left:50px;
+    font-size:14px;
+}
+.accounttitle{
+    display:inline;
+    font-family:'DM Sans';
+    font-size:24px;
+    padding-right:750px;
+}
+.profilebutton{
+    display:inline;
+    font-family:'DM Sans';
+    background-color:#624BFF;
+    color:#FFFFFF;
+    border-radius:8px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:7px;
+    padding-bottom:7px;
+    border:none;
+    font-size:14px;
+}
+.generalsettings{
+    font-size:20px;
+    font-family:'Inter';
+}
+.emaildisplay{
+    font-size:12px;
+    color:#637381;
+    display:inline;
+}
+.adminemail{
+    font-size:12px;
+    color:#624BFF;
+    display:inline;
+}
+.details{
+    font-family:'Inter';
+    display:inline;
+}
+.logo{
+    margin-bottom:30px;
+}
+#logoslot{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background-color:#637381;
+    display:inline-block;
+    transform: translateY(17px);
+    margin-left:100px;
+    margin-right:20px;
+}
+.logobutton{
+    border-radius:4px;
+    background-color:#FFFFFF;
+    padding-left:6px;
+    padding-right:6px;
+    padding-top:4px;
+    padding-bottom:4px;
+    font-family:'Inter';
+    color:#624BFF;
+    border-width:1px;
+    border-color:#DFE3E8;
+}
+.coverphoto{
+    display:inline;
+    translate:translateY(-20px);
+}
+.coverphotosection{
+    display:inline;
+}
+.addimage{
+    width:550px;
+    height:100px;
+    border-width:1px;
+    border-style:solid;
+    border-radius:6px;
+    display:inline-block;
+    margin-left:120px;
+    text-align:center;
+    vertical-align:center;
+}
+.imageinstructions{
+    display:inline;
+    vertical-align:center;
+}
+.imageboxtext{
+    vertical-align:center;
+}
+.filebrowse{
+    font-size:12px;
+    color:#624BFF;
+    display:inline;
+}
+.imagechange{
+    margin-left:205px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    padding-left:6px;
+    padding-right:6px;
+    padding-top:4px;
+    padding-bottom:4px;
+    font-family:'Inter';
+    color:#624BFF;
+    border-width:1px;
+    border-color:#DFE3E8;
+}
+.basicinfotitle{
+    font-family:'Inter';
+    font-size:20px;
+}
+.infofield{
+    border-radius:6px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:6px;
+    padding-bottom:6px;
+    border-color:#DFE3E8;
+    width:272.5px;
+}
+.companyname{
+    margin-right:100px;
+    display:inline;
+}
+.companyemail{
+    display:inline;
+    margin-right:169.5px;
+}
+.longinfofield{
+    border-radius:6px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:6px;
+    padding-bottom:6px;
+    border-color:#DFE3E8;
+    width:548px;
+    display:inline-block;
+}
+.optional{
+    display:inline;
+    color:#919EAB;
+}
+.companyphone{
+    margin-right:95px;
+    display:inline;
+}
+.companycountry{
+    margin-right:150.5px;
+    display:inline;
+}
+.cityinfofield{
+    margin-left:206.5px;
+    border-radius:6px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:6px;
+    padding-bottom:6px;
+    border-color:#DFE3E8;
+    width:548px;
+    display:inline-block;
+}
+.stateinfofield{
+    margin-left:206.5px;
+    border-radius:6px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:6px;
+    padding-bottom:6px;
+    border-color:#DFE3E8;
+    width:548px;
+    display:inline-block;
+}
+.savebutton{
+    display:inline;
+    font-family:'DM Sans';
+    background-color:#624BFF;
+    color:#FFFFFF;
+    border-radius:8px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:7px;
+    padding-bottom:7px;
+    border:none;
+    font-size:14px;
+    margin-left:645px;
+}
+#cakemenu{
+    float:left;
+    font-family:'DM Sans';
+    padding-top:25px;
+    padding-left:50px;
+    font-size:24px;
+}
+.cakedetails{
+    width:670px;
+    height:35px;
+    border-radius:5px;
+}
+.cakeimageslot{
+    width:200px;
+    height:200px;
+    background-color:#D9D9D9;
+}
+.caketestimonial{
+    width:670px;
+    height:95px;
+    border-radius:5px;
+}
+.cakesubmit{
+    border-radius:24px;
+    width:75px;
+    height:35px;
+    background-color:#F3C3E7;
+    font-family:'DM Sans';
+    color:#830D98;
+    border-color:#830D98;
+    box-shadow:3px 3px; 
+    margin-left:600px;
+}
+.testimonialimageslot{
+    width:200px;
+    height:200px;
+    background-color:#D9D9D9;
+}
+#pastrymenu{
+    float:left;
+    font-family:'DM Sans';
+    padding-top:25px;
+    padding-left:50px;
+    font-size:24px;
+}
+.pastrydetails{
+    width:670px;
+    height:35px;
+    border-radius:5px;
+}
+.pastryimageslot{
+    width:200px;
+    height:200px;
+    background-color:#D9D9D9;
+}
+.pastrytestimonial{
+    width:670px;
+    height:95px;
+    border-radius:5px;
+}
+.pastrysubmit{
+    border-radius:24px;
+    width:75px;
+    height:35px;
+    background-color:#F3C3E7;
+    font-family:'DM Sans';
+    color:#830D98;
+    border-color:#830D98;
+    box-shadow:3px 3px; 
+    margin-left:600px;
+}
+#eventsmenu{
+    float:left;
+    font-family:'DM Sans';
+    padding-top:25px;
+    padding-left:50px;
+    font-size:24px;
+}
+.eventdetails{
+    width:670px;
+    height:35px;
+    border-radius:5px;
+}
+.addeventimage{
+    width:550px;
+    height:100px;
+    border-width:1px;
+    border-style:solid;
+    border-radius:6px;
+    display:inline-block;
+    text-align:center;
+    vertical-align:center;
+}
+#customcakemenu{
+    float:left;
+    font-family:'DM Sans';
+    padding-top:25px;
+    padding-left:50px;
+    font-size:24px;
+}
