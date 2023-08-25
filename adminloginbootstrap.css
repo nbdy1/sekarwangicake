@@ -1,0 +1,18 @@
+.rectangle{
+    display: flex;
+    width: 10rem;
+    margin: 1rem;
+    border-radius:10px;
+    border-width: 5px solid;
+    border-color: #830D98;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.html{
+    font-family: Sans-serif;
+}
