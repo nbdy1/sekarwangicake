@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link rel="stylesheet" href="admindashboard.css">
+    </head>
+    <body>
+        <div class="sidebar">
+            <p class="dashboardtitle">Dashboard</p>
+            <button class="dashboarddropdown" onClick="showdashboard()">Dashboard ></button>
+                <br/>
+                <div id="dashboardbutton">
+                    <button class="dashboardoption" onClick="showevents()">Events</button>
+                </div>
+            <p class="layoutsandpages"><b>LAYOUTS & PAGES</b></p>
+            <button class="products" onClick="showproducts()">Products ></button>
+            <br/>
+            <div id="productoptions">
+                <button class="productoption" onClick="showcakes()">Cakes</button>
+                <br/>
+                <button class="productoption" onClick="showpastries()">Pastries</button>
+                <br/>
+                <button class="productoption" onClick="showcustomcakes()">Custom Cakes</button>
+            </div>
+            <p class="admintitle">
+                Admin
+            </p>
+            <button class="dashboardoption" onClick="showaccount()">Account</button>
+        </div>
+        <div id="accountmenu">
+            <div class="accountheader">
+                <p class="accounttitle"><b>Account</b></p>
+                <button class="profilebutton">My Profile</button>
+            </div>
+            <hr>
+            <p>User Visits</p>
+            <br/>
+            <p class="generalsettings"><b>General Settings</b></p>
+            <p class="emaildisplay">Your current primary email address is <p class="adminemail">admin@example.com</p></p>
+            <div class="logo">
+                <p class="details">Company Logo</p>
+                <div id="logoslot"></div>
+                <button class="logobutton">Change</button>
+                <button class="logobutton">Remove</button>   
+            </div>
+            <div class="coverphotosection">
+                <p class="coverphoto">Cover Photo</p>
+                <div class="addimage">
+                    <div class="imageboxtext">
+                        <p class="imageinstructions">Drag Image Here or <p class="filebrowse"></p>Browse Files</p>
+                    </div>
+                </div>
+                <br/><br/>
+                <button class="imagechange">Change</button>
+            </div>
+            <div class="basicinfo">
+                <p class="basicinfotitle"><b>Basic Information</b></p>
+                <p class="emaildisplay">Update some personal information. Your address will never be publicly available. </p>
+                <br/><br/><br/>
+                <p class="companyname">Company Name</p>
+                <input class="infofield" placeholder="First Name"></input>
+                <input class="infofield" placeholder="Last Name"></input>
+                <br/><br/>
+                <p class="companyemail">Email</p>
+                <input class="longinfofield" placeholder="Email"></input>
+                <br/><br/>
+                <p class="companyphone">Phone (Optional)</p>
+                <input class="longinfofield" type="number" placeholder="Phone"></input>
+                <br/><br/>
+                <p class="companycountry">Country</p>
+                <input class="longinfofield" placeholder="Select Country"></input>
+                <br/><br/>
+                <input class="cityinfofield" placeholder="City"></input>
+                <br/><br/>
+                <input class="stateinfofield" placeholder="State"></input>
+                <br/><br/>
+                <button class="savebutton">Save Changes</button>
+            </div>
+        </div>
+        <div id="cakemenu">
+            <p><b>Cake Name</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Cake Description</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Cake Image</b></p>
+            <div class="cakeimageslot"></div>
+            <p><b>Cake Testimonial</b></p>
+            <input class="caketestimonial"></input>
+            <p><b>Testimonial Profile Picture</b></p>
+            <div class="testimonialimageslot"></div>
+            <br/>
+            <button class="cakesubmit"><b>Submit</b></button>
+        </div>
+        <div id="pastrymenu">
+            <p><b>Pastry Name</b></p>
+            <input class="pastrydetails"></input>
+            <p><b>Pastry Description</b></p>
+            <input class="pastrydetails"></input>
+            <p><b>Pastry Image</b></p>
+            <div class="pastryimageslot"></div>
+            <p><b>Pastry Price</b></p>
+            <input class="pastrydetails"></input>
+            <p><b>Pastry Testimonial</b></p>
+            <input class="pastrytestimonial"></input>
+            <p><b>Testimonial Profile Picture</b></p>
+            <div class="testimonialimageslot"></div>
+            <br/>
+            <button class="pastrysubmit"><b>Submit</b></button>
+        </div>
+        <div id="customcakemenu">
+            <p><b>Custom Cake Name</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Custom Cake Description</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Custom Cake Image</b></p>
+            <div class="cakeimageslot"></div>
+            <p><b>Custom Cake Client Name</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Custom Cake Testimonial Quote</b></p>
+            <input class="caketestimonial"></input>
+            <p><b>Custom Cake Client Rating</b></p>
+            <input class="cakedetails"></input>
+            <p><b>Custom Cake Client Profile Picture</b></p>
+            <div class="testimonialimageslot"></div>
+            <br/>
+            <button class="cakesubmit"><b>Submit</b></button>
+        </div>
+        <div id="eventsmenu">
+            <p><b>Event Name</b></p>
+            <input class="eventdetails"></input>
+            <p><b>Event Description</b></p>
+            <input class="eventdetails"></input>
+            <p><b>Event Input</b></p>
+            <input class="eventdetails"></input>
+            <p><b>Event Image</b></p>
+            <div class="addeventimage">
+            <br/>
+            <div class="imageboxtext">
+                <p class="imageinstructions">Drag Image Here or <p class="filebrowse"></p>Browse Files</p>
+            </div>
+            <br/><br/>
+            <button class="pastrysubmit"><b>Submit</b></button>
+        </div>
+    </body>
+    <script src="sidebar.js"></script>
+</html>
