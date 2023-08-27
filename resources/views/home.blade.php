@@ -7,7 +7,10 @@
             <div class="absolute top-1/2 left-20">
                 <p class="text-7xl font-baloo font-bold text-secondary">Indulge in Artistry</p>
                 <p class="text-3xl font-baloo font-bold text-white">Discover Our Exquisite Custom Cakes!</p>
-                @include('partials._button')
+                <div class="flex gap-x-3 mt-5"> <x-button style="secondary">Discover</x-button>
+                    <x-button style="primary">Contact Us</x-button>
+                </div>
+
             </div>
 
             <img src="https://s3-alpha-sig.figma.com/img/08f6/df23/7304f97801e79347a3b2193c00fda742?Expires=1692576000&Signature=bxQfR1l1HIyuBN~Q1cA5~1w~GU~LDF340V0wesQSk~~NUVaRSycxrYaCPDRBeRctQzsB0w~ROTA372GUkT~Ufn4xp~gQcoeTdDLejmfmreWAWxBNy5zQrERk~0hCCSjTO0iYjzMw8i7NfXZJO0Epkn7cMlRJuN8sfS-ScNsUvggFIVkqs5sIRZsEqgjAqbvmm4487K5TD97jA3-Q8hg29S8lTKZCpM~FQdPfpfOD3N6VoIs1dgU5x90wSyyRR0KBNgok4mLay7pVxt5tUsZhqhRyI~jeJsCnISKpgPsDOIPAjQvYIF9vZxxp-0qdc4SMhkf4rliOrZIXoPqZ2ro8aA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"

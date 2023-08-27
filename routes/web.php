@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CatalogueController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+// Route::get('/catalogue', 'CatalogueController@index')->name('catalogue.index');
+Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue.index');
+
 
 Route::get('/order', function () {
     return view('order');
@@ -28,6 +30,7 @@ Route::get('/order', function () {
 Route::get('/admin/product-add', function () {
     return view('product_add');
 });
+
 
 Route::get('/events', function () {
     return view('events');
