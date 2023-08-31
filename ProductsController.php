@@ -22,6 +22,13 @@ class ProductsController extends Controller
         return view('addcake');
     }
 
+    public function showAddCustomeCakePage()
+    {
+        return view('addcustomcake');
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      */
@@ -31,22 +38,25 @@ class ProductsController extends Controller
         $this->validate($req, [
             'productName' => 'required',
             'productDescription' => 'required',
-            'productImage' => 'required',
-            'productType' => 'required|image',
+            'productImage' => 'required|image',
+            'productType' => 'required',
             'productSlug' => 'required',
-            'productPrice' => 'required|image',
-            'productTheme' => 'required',
+            'productPrice' => 'required',
+            'productTheme' => 'nullable',
         ]);
 
-        $file = $req->file('cakeImage');
-        $filename = $req->cakeName . '.' . $file->extension();
+        $file = $req->file('productImage');
+        $filename = $req->productName . '.' . $file->extension();
         $uploadDirectory = 'assets';
         $file->move($uploadDirectory, $filename);
 
-        $file = $req->file('testimonialImage');
-        $filename_testimonial = $req->testimonialImage . '.' . $file->extension();
-        $uploadDirectory = 'assets';
-        $file->move($uploadDirectory, $filename_testimonial);
+        foreach ($req->file('productImage') as $imagefile) {
+            $image = new Image;
+            $path = $imagefile->store('/images/resource', ['disk' => 'my_files']);
+            $image->url = $path;
+            $image->product_id = $product->id;
+            $image->save();
+        }
 
         // Product::create([
         //     'ProductName' => $req->cakeName,
