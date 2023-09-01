@@ -2,19 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\Theme;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ThemeFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+   
+    protected $model = Theme::class;
     public function definition()
     {
+        $themeNames = ['Birthday', 'Wedding', 'Anniversary', 'Baby Shower', 'Valentine', 'Holiday'];
+
         return [
-            //
+            'theme_name' => $this->faker->randomElement($themeNames),
         ];
     }
 }

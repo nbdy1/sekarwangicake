@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -27,9 +28,9 @@ Route::get('/order', function () {
     return view('order');
 });
 
-Route::get('/admin/product-add', function () {
-    return view('product_add');
-});
+// Route::get('/admin/product-add', function () {
+//     return view('product_add');
+// });
 
 
 Route::get('/events', function () {
@@ -39,3 +40,12 @@ Route::get('/events', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+
+Route::get('/adminhome', function(){
+    return view('adminhome');
+});
+
+
+Route::get('/admin/add-simple-cake', [ProductController::class, 'showAddSimpleCakePage']);
+Route::post('/admin/add-simple-cake', [ProductController::class, 'addSimpleCake']);

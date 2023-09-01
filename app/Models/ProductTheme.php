@@ -12,13 +12,12 @@ class ProductTheme extends Model
     use HasFactory;
     public function themes()
 {
-    return $this->belongsToMany(Theme::class, 'product_themes')
-                ->withPivot('theme_names');
+    return $this->belongsToMany(Theme::class, 'product_theme');
 }
 
 // Theme.php
 public function products()
 {
-    return $this->belongsToMany(Product::class);
+    return $this->belongsToMany(Product::class, 'product_theme');
 }
 }

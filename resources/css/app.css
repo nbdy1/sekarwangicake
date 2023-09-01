@@ -1,6 +1,16 @@
 /* import fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap');
+@import '~@fortawesome/fontawesome-free/css/fontawesome';
+@import '~@fortawesome/fontawesome-free/css/regular';
+@import '~@fortawesome/fontawesome-free/css/solid';
+@import '~@fortawesome/fontawesome-free/css/brands';
+@font-face {
+  font-family: "Mocaroni";
+  src: url("/fonts/Mocaroni.ttf");
+}
+
+
 
 /* tailwind */
 @tailwind base;
@@ -9,4 +19,76 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
+  
+}
+/* F3C3E7 figma secondary color*/
+:root {
+  --back: #F3C3E7;
+  --front: #fff;
+  --lines: #830D98;
+  --distance:8px; /* ini jgn diganti*/
+--cut-distance:3px; 
+--strips-size:14px;  
+--strips-ratio:50%; 
+--strips-angle:45deg; 
+  /* back should match with foreground */
+}
+
+/* default dashed colors from copy paste:
+ba9186
+e8e3c7
+ */
+
+ .dashed-shadow {
+  position: relative;
+  top:var(--distance);
+  left:var(--distance);
+  display: inline-block;
+  color: var(--back);
+}
+
+@keyframes dash-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.dashed-shadow:before {
+  animation: dash-animation 45s infinite linear;
+  content: " ";
+  display: block;
+  position: absolute;
+  --bleeding-horizontal:10px;
+  --bleeding-vertical:0px;
+  /* top: -8px;
+  left: -8px;
+  bottom: -2px;
+  right: -2px; */
+  top: calc(calc(var(--bleeding-vertical) * -1) - var(--distance));
+  left: calc(calc(var(--bleeding-vertical) * -1) - var(--distance));
+  bottom: calc(calc(var(--bleeding-horizontal) * -1) + var(--distance));
+  right: calc(calc(var(--bleeding-horizontal) * -1) + var(--distance));
+  z-index: 1;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIxMi41JSIgc3RvcC1jb2xvcj0iI2U4ZTNjNyIvPjxzdG9wIG9mZnNldD0iMTIuNSUiIHN0b3AtY29sb3I9IiNlOGUzYzciIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSIzNy41JSIgc3RvcC1jb2xvcj0iI2U4ZTNjNyIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjM3LjUlIiBzdG9wLWNvbG9yPSIjZThlM2M3Ii8+PHN0b3Agb2Zmc2V0PSI2Mi41JSIgc3RvcC1jb2xvcj0iI2U4ZTNjNyIvPjxzdG9wIG9mZnNldD0iNjIuNSUiIHN0b3AtY29sb3I9IiNlOGUzYzciIHN0b3Atb3BhY2l0eT0iMC4wIi8+PHN0b3Agb2Zmc2V0PSI4Ny41JSIgc3RvcC1jb2xvcj0iI2U4ZTNjNyIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9Ijg3LjUlIiBzdG9wLWNvbG9yPSIjZThlM2M3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(45deg, var(--lines) 12.5%, rgba(232, 227, 199, 0) 12.5%, rgba(232, 227, 199, 0) 37.5%, var(--lines) 37.5%, var(--lines) 62.5%, rgba(232, 227, 199, 0) 62.5%, rgba(232, 227, 199, 0) 87.5%, var(--lines) 87.5%);
+  background-image: -webkit-linear-gradient(45deg, var(--lines) 12.5%, rgba(232, 227, 199, 0) 12.5%, rgba(232, 227, 199, 0) 37.5%, var(--lines) 37.5%, var(--lines) 62.5%, rgba(232, 227, 199, 0) 62.5%, rgba(232, 227, 199, 0) 87.5%, var(--lines) 87.5%);
+  background-image: linear-gradient(45deg, var(--lines) 12.5%, rgba(232, 227, 199, 0) 12.5%, rgba(232, 227, 199, 0) 37.5%, var(--lines) 37.5%, var(--lines) 62.5%, rgba(232, 227, 199, 0) 62.5%, rgba(232, 227, 199, 0) 87.5%, var(--lines) 87.5%);
+  background-size: var(--strips-size) var(--strips-size);
+}
+
+/* .dashed-shadow:hover:before {
+  animation: dash-animation 30s infinite linear;
+} */
+
+.dashed-shadow:after {
+  z-index: 2;
+  content: attr(data-text);
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  color: var(--front);
+  text-shadow:var(--cut-distance) var(--cut-distance) var(--lines);
 }

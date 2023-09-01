@@ -1,6 +1,6 @@
-<header class="py-6 px-6 bg-white shadow-md sticky top-0 z-[999]">
+<header class="py-6 px-6 bg-white border-black sticky top-0 z-[999]">
     <nav class="flex justify-between items-center text-base ">
-        <a href="/">Logo</a>
+        <a class="" href="/"><img class="aspect-auto h-12" src="/images/crop_logo2.jpg" /></a>
         <ul class="flex gap-x-10 font-medium text-primary">
             <li><a href="{{ route('catalogue.index') }}">Catalogue</a></li>
             <li><a href="/events">Events</a></li>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Sekarwangi Cake')</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Sekarwangi Cake | Admin Home')</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +14,13 @@
 
     <!-- TailwindCSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- favicon --}}
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
-
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 </head>
 
+<body class="h-screen w-auto flex">
+    <div class="h-auto md:w-36 lg:w-72">@include('partials._admin_sidebar')</div>
+    <div class="ml-10 mt-16">@yield('content')</div>
 
-<body>
-    @include('partials._header')
-    {{-- <div class="px-4 md:px-8 xl:px-16"> --}}
-    <div class="">
-        {{-- dont put overflow-x-hidden or y-hidden or any hidden on here because it can ruin sticky --}}
-        @yield('content')
-    </div>
-    @include('partials._footer')
 </body>
 
 </html>

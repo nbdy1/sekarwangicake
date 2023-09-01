@@ -12,20 +12,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap"
         rel="stylesheet">
-
-    <!-- TailwindCSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
-
+    <!-- TailwindCSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 
 <body>
     @include('partials._header')
-    {{-- <div class="px-4 md:px-8 xl:px-16"> --}}
-    <div class="">
-        {{-- dont put overflow-x-hidden or y-hidden or any hidden on here because it can ruin sticky --}}
+    <div class="overflow-x-hidden">
         @yield('content')
     </div>
     @include('partials._footer')
