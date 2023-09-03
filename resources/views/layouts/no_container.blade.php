@@ -15,7 +15,7 @@
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <!-- TailwindCSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
 </head>
 
 

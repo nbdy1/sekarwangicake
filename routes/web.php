@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SimpleCakeController;
 
 
 /*
@@ -42,10 +43,12 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/adminhome', function(){
-    return view('adminhome');
+Route::get('/admin', function(){
+    return view('admin.admin_home');
 });
 
-
-Route::get('/admin/add-simple-cake', [ProductController::class, 'showAddSimpleCakePage']);
-Route::post('/admin/add-simple-cake', [ProductController::class, 'addSimpleCake']);
+Route::get('/admin/simple-cake', [SimpleCakeController::class, 'index']);
+Route::get('/admin/simple-cake/create', [SimpleCakeController::class, 'create']
+);
+Route::post('/admin/simple-cake/create', [SimpleCakeController::class, 'store']);
+// Route::post('/admin/add-simple-cake', [ProductController::class, 'addSimpleCake']);

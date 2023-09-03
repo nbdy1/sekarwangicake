@@ -1,4 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/admin/admin.js": "/js/admin/admin.js",
+    "/js/admin/components/chart-01.js": "/js/admin/components/chart-01.js",
+    "/js/admin/components/chart-02.js": "/js/admin/components/chart-02.js",
+    "/js/admin/components/chart-03.js": "/js/admin/components/chart-03.js",
+    "/js/admin/components/chart-04.js": "/js/admin/components/chart-04.js",
+    "/css/admin.css": "/css/admin.css",
+    "/css/front.css": "/css/front.css"
 }

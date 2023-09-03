@@ -14,7 +14,7 @@
         rel="stylesheet">
 
     <!-- TailwindCSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
@@ -24,10 +24,10 @@
 <body>
     @include('partials._header')
     {{-- <div class="px-4 md:px-8 xl:px-16"> --}}
-    <div class="">
+    <main class="">
         {{-- dont put overflow-x-hidden or y-hidden or any hidden on here because it can ruin sticky --}}
         @yield('content')
-    </div>
+    </main>
     @include('partials._footer')
 </body>
 
