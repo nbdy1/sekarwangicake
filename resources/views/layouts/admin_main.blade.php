@@ -11,8 +11,6 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <script defer src="{{ asset('js/admin/admin.js') }}"></script>
 
-
-
 </head>
 
 <body x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));

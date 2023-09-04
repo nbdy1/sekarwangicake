@@ -51,4 +51,7 @@ Route::get('/admin/simple-cake', [SimpleCakeController::class, 'index']);
 Route::get('/admin/simple-cake/create', [SimpleCakeController::class, 'create']
 );
 Route::post('/admin/simple-cake/create', [SimpleCakeController::class, 'store']);
+Route::post('/admin/simple-cake/', [SimpleCakeController::class, 'store']);
+
+Route::get('/admin/simple-cake/check-slug', [SimpleCakeController::class, 'checkSlug']);
 // Route::post('/admin/add-simple-cake', [ProductController::class, 'addSimpleCake']);

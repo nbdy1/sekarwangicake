@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class SimpleCakeController extends Controller
 {
@@ -37,6 +38,15 @@ class SimpleCakeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'simpleCakeName' => 'required|string|max:255',
+            'simpleCakeSlug' => 'required|string|unique:products,product_slug|max:255',
+            'simpleCakeDescription' => 'required|string',
+            'simpleCakePrice' => 'required|numeric|min:0',
+            'image' => 'required|array|min:1',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the allowed file types and size as needed
+        ]);
+        
         $product = new Product([
             "product_name" => $request->simpleCakeName,
             "product_type" => "simple_cake",
@@ -46,14 +56,20 @@ class SimpleCakeController extends Controller
               ]);
         $product->save();
 
-        if ($request->hasFile("images")){
-            $files = $request->file("images");
+        if ($request->hasFile("image")){
+            $uploadPath = 'uploads/products/';
+
+            $files = $request->file("image");
+            // ddd($files);
+            $i = 1;
             foreach($files as $file) {
-                $imageName = time().'_'.$file->getClientOriginalName();
-                $request['product_id'] = $product->product_id;
-                $request['image'] = $imageName;
-                $file->move(\public_path("images"),$imageName);
-                ProductImage::create($request->all());
+                $extension = $file->getClientOriginalExtension();
+                $filename = time().$i++.'.'.$extension;
+                $file->move($uploadPath,$filename);
+                $finalImagePathName = $uploadPath.$filename;
+
+
+                $product->product_images()->create(["product_id" => $product->id, "image" => $finalImagePathName]);
             }
         }
         
@@ -104,5 +120,11 @@ class SimpleCakeController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function checkSlug(Request $request) {
+        $slug = SlugService::createSlug(Product::class, 'product_slug', $request->name);
+        // these parameters to check if its unique
+        return response()->json(["slug" => $slug]);
     }
 }

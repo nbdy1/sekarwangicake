@@ -36,7 +36,7 @@
                                 Last Updated
                             </th>
                             <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                                Name
+                                Product
                             </th>
                             <th class="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
                                 Price
@@ -47,14 +47,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+                        @forelse ($products as $product)
                             <tr>
                                 <td class="py-5 px-4 pl-9 text-black dark:text-white">{{ $product->updated_at }}</td>
                                 <td class="py-5 px-4 text-black dark:text-white">
                                     <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                                        <div class="h-12.5 w-15 rounded-md">
-                                            {{-- <img src="/images/{{ $product->product_images->image->find(1) }}" /> --}}
-                                        </div>
+                                        @if (!empty($product->product_images))
+                                            @php
+                                                $productImages = json_decode($product->product_images, true);
+                                                $sortedImages = collect($productImages)
+                                                    ->sortBy('image')
+                                                    ->values()
+                                                    ->toArray();
+                                            @endphp
+                                            <div class="h-12.5 w-15 rounded-md cover overflow-hidden">
+                                                <img src="{{ asset($sortedImages[0]['image']) }}"
+                                                    alt="{{ $product->product_name }}">
+                                            </div>
+                                        @endif
+
+
                                         <p class="font-medium text-sm text-black dark:text-white">
                                             {{ $product->product_name }}</p>
                                     </div>
@@ -77,7 +89,13 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td class="py-5 px-4 pl-9 text-black dark:text-white text-center" colspan="4">No Simple
+                                    Cakes
+                                    Available</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
