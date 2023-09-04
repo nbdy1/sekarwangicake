@@ -11,7 +11,8 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Name
                     </label>
-                    <input id="simpleCakeName" name="simpleCakeName" type="text" placeholder="Cheese Cake"
+                    <input autofocus value="{{ old('simpleCakeName') }}" required id="simpleCakeName" name="simpleCakeName"
+                        type="text" placeholder="Cheese Cake"
                         class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakeName') !border-danger @enderror" />
                     @error('simpleCakeName')
                         <div class="text-sm text-danger">{{ $message }}</div>
@@ -22,8 +23,8 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Slug
                     </label>
-                    <div class="flex flex-row gap-x-3"> <input id="simpleCakeSlug" name="simpleCakeSlug" type="text"
-                            placeholder="cheese-cake"
+                    <div class="flex flex-row gap-x-3"> <input value="{{ old('simpleCakeSlug') }}" required
+                            id="simpleCakeSlug" name="simpleCakeSlug" type="text" placeholder="cheese-cake"
                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeSlug') !border-danger @enderror" />
                         <button id="generateSlug" href="#"
                             class="inline-flex items-center justify-center rounded-md bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
@@ -41,9 +42,9 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Cake Description
                     </label>
-                    <textarea name="simpleCakeDescription" rows="6"
+                    <textarea required name="simpleCakeDescription" rows="6"
                         placeholder="Indulge in the creamy decadence of our Cheese Cake. This delectable treat boasts velvety-smooth cheesecake with a generous layer of sweet cheese frosting. Topped with a delicate sprinkle of fine grated cheese, it's a perfect blend of sweet and tangy flavors. Ideal for any occasion, our Cheese Cake is a crowd-pleaser that will leave a lasting impression. Order yours today and savor the rich, cheesy goodness in every heavenly bite."
-                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeDescription') !border-danger @enderror"></textarea>
+                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeDescription') !border-danger @enderror">{{ old('simpleCakeDescription') }}</textarea>
                     @error('simpleCakeDescription')
                         <div class="text-sm text-danger">{{ $message }}</div>
                     @enderror
@@ -53,7 +54,8 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Price
                     </label>
-                    <input name="simpleCakePrice" type="text" placeholder="25000"
+                    <input value="{{ old('simpleCakePrice') }}" required name="simpleCakePrice" type="text"
+                        placeholder="25000"
                         class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakePrice') !border-danger @enderror" />
                     @error('simpleCakePrice')
                         <div class="text-sm text-danger">{{ $message }}</div>
@@ -94,7 +96,7 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Cake Images
                     </label>
-                    <input id="file-input" name="image[]" type="file" multiple="true"
+                    <input id="file-input" name="image[]" type="file" multiple="true" required
                         class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter dark:file:bg-white/30 dark:file:text-white file:py-3 file:px-5 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:focus:border-primary @error('image') !file:border-danger !border-danger @enderror @error('image.*') !file:border-danger !border-danger @enderror" />
                     @error('image')
                         <div class="text-sm text-danger">{{ $message }}</div>
