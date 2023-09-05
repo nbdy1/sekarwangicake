@@ -32,13 +32,19 @@
                 <table class="w-full table-auto">
                     <thead>
                         <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                            <th class="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+                            <th class="max-w-30 py-4 px-4 font-medium text-black dark:text-white xl:pl-7">
                                 Last Updated
                             </th>
-                            <th class="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                            <th class="min-w-content py-4 px-4 font-medium text-black dark:text-white">
                                 Product
                             </th>
-                            <th class="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                            <th class="min-w-content py-4 px-4 font-medium text-black dark:text-white">
+                                Desc
+                            </th>
+                            <th class="min-w-content py-4 px-4 font-medium text-black dark:text-white">
+                                Slug
+                            </th>
+                            <th class="min-w-content py-4 px-4 font-medium text-black dark:text-white">
                                 Price
                             </th>
                             <th class="py-4 px-4 font-medium text-black dark:text-white">
@@ -49,7 +55,9 @@
                     <tbody>
                         @forelse ($products as $product)
                             <tr>
-                                <td class="py-5 px-4 pl-9 text-black dark:text-white">{{ $product->updated_at }}</td>
+                                <td class="py-5 px-4 xl:pl-7 text-xs text-black dark:text-white max-w-30">
+                                    {{ $product->updated_at }}
+                                </td>
                                 <td class="py-5 px-4 text-black dark:text-white">
                                     <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                                         @if (!empty($product->product_images))
@@ -71,7 +79,13 @@
                                             {{ $product->product_name }}</p>
                                     </div>
                                 </td>
-                                <td class="py-5 px-4 text-black dark:text-white">{{ $product->product_price }}</td>
+                                <td class="py-5 px-4 max-w-30 text-black dark:text-white">
+                                    {{ Str::limit($product->product_description, 30, '...') }}</td>
+                                <td class="py-5 px-4 max-w-30 text-black dark:text-white">
+                                    {{ $product->product_slug }}</td>
+                                <td class="py-5 px-4 text-black dark:text-white">
+                                    {{ 'IDR ' . number_format($product->product_selling_price, 0, '', ',') }}</td>
+
 
 
                                 <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">

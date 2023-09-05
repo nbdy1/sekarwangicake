@@ -19,7 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('product_slug')->unique();
             $table->text('product_description');
             $table->string('product_type'); // 'simplecake' or 'pastry'
-            $table->unSignedBigInteger('product_price'); // 'simplecake' or 'pastry'
+            $table->unSignedBigInteger('product_selling_price'); // 'simplecake' or 'pastry'
+            $table->unSignedBigInteger('product_original_price')->nullable(); // 'simplecake' or 'pastry'
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class SimpleCakeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all()->sortByDesc('updated_at');
         return view('admin.simple_cake')->with('products', $products);
     }
 
@@ -43,6 +43,7 @@ class SimpleCakeController extends Controller
             'simpleCakeSlug' => 'required|string|unique:products,product_slug|max:255',
             'simpleCakeDescription' => 'required|string',
             'simpleCakePrice' => 'required|numeric|min:0',
+            'simpleCakeOriPrice' => 'nullable|numeric|min:0',
             'image' => 'required|array|min:1',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the allowed file types and size as needed
         ]);
@@ -52,7 +53,8 @@ class SimpleCakeController extends Controller
             "product_type" => "simple_cake",
              "product_slug" => $request->simpleCakeSlug,
              "product_description" => $request->simpleCakeDescription,
-             "product_price" => $request->simpleCakePrice,
+             "product_selling_price" => $request->simpleCakePrice,
+             "product_original_price" => $request->simpleCakeOriPrice,
               ]);
         $product->save();
 

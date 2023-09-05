@@ -52,7 +52,7 @@
 
                 <div>
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
-                        Price
+                        Selling Price
                     </label>
                     <input value="{{ old('simpleCakePrice') }}" required name="simpleCakePrice" type="text"
                         placeholder="25000"
@@ -91,7 +91,19 @@
                             </div>
                         </div>
                     </label>
+                    <div x-show="switcherToggle">
+                        <label class="mt-5.5 mb-3 block font-medium text-sm text-black dark:text-white">
+                            Pre-discounted Price
+                        </label>
+                        <input :required="switcherToggle" value="{{ old('simpleCakeOriPrice') }}" name="simpleCakeOriPrice"
+                            type="text" placeholder="25000"
+                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakeOriPrice') !border-danger @enderror" />
+                        @error('simpleCakeOriPrice')
+                            <div class="text-sm text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
+
                 <div>
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Cake Images

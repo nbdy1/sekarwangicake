@@ -1,4 +1,4 @@
-@extends('layouts.nocontainer')
+@extends('layouts.no_container')
 @section('content')
     <div class="flex bg-primary justify-center p-3">
         <span data-text="UPCOMING EVENTS"

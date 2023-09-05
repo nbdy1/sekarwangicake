@@ -15,4 +15,8 @@ class CatalogueController extends Controller
         return view('catalogue', ['products' => $products]);
     }
     
+    public function show(Product $product)
+    {
+        return view('product', ['product' => $product]);
+    }
 }

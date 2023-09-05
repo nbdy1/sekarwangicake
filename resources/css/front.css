@@ -22,9 +22,9 @@ body {
 }
 /* F3C3E7 figma secondary color*/
 :root {
-  --back: #F3C3E7;
-  --front: #fff;
-  --lines: #830D98;
+  --back: #de95cb;
+  --front: #830D98;
+  --lines: #fff;
   --distance:8px; /* ini jgn diganti*/
 --cut-distance:3px; 
 --strips-size:14px;  

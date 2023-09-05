@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 // Route::get('/catalogue', 'CatalogueController@index')->name('catalogue.index');
 Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue.index');
+Route::get('/catalogue/product/{product:product_slug}', [CatalogueController::class, 'show']);
 
 
 Route::get('/order', function () {
