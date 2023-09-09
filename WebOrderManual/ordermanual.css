@@ -1,0 +1,94 @@
+.title{
+    margin-top:-10px;
+    margin-left:-10px;
+    margin-right:-10px;
+    height:100px;
+    background-color:#830D98;
+    font-family:'Baloo';
+    color:#FFFFFF;
+    text-align:center;
+    font-size:50px;
+    vertical-align:center;
+    padding-top:20px;
+}
+.maincontent{
+    margin-left:35px;
+    margin-top:10px;
+    margin-right:20px;
+}
+.customcakes{
+    color:#830D98;
+    font-family:'Baloo';
+    font-size:48px;
+    margin-bottom:50px;
+}
+.simplecakes{
+    color:#830D98;
+    font-family:'Baloo';
+    font-size:48px;
+    text-align:right;
+    margin-bottom:400px;
+}
+#customsampleimage{
+    width:300px;
+    height:375px;
+    border-radius:54px;
+    float:left;
+    margin-right:20px;
+}
+#simplesampleimage{
+    width:300px;
+    height:375px;
+    border-radius:54px;
+    float:right;
+}
+.customcontent{
+    font-family:'DM Sans';
+    font-size:20px;
+    font-weight:bold;
+    text-align:justify;
+    margin-top:30px;
+}
+.simplecontent{
+    font-family:'DM Sans';
+    font-size:20px;
+    font-weight:bold;
+    text-align:justify;
+    margin-top:30px;
+    width:70%;
+    float:left;
+    margin-right:35px;
+}
+.catalogbutton{
+    background-color:#830D98;
+    border-radius:24px;
+    width:166px;
+    height:55px;
+    margin-top:50px;
+    color:#FFFFFF;
+    border:none;
+    font-family:'DM Sans';
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:7px 7px #000000;
+}
+.orderbutton{
+    background-color:#DE95CB;
+    border-radius:24px;
+    width:275px;
+    height:55px;
+    margin-top:50px;
+    color:#000000;
+    border:none;
+    font-family:'DM Sans';
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:7px 7px #000000;
+    margin-left:10px;
+}
+.simplebuttons{
+    float:left;
+}
+button:hover{
+    translate: 0px 5px;
+}
