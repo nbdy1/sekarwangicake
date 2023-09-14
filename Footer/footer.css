@@ -1,0 +1,39 @@
+html{
+    font-family:'DM Sans';
+    font-size:15px;
+}
+#companylogo{
+    width:150px;
+    height:74px;
+}
+.footer{
+    margin-left:31px;
+    margin-right:31px;
+}
+.socials{
+    width:37.5px;
+    height:37.5px;
+}
+.copyright{
+    margin-top:100px;
+}
+.leftside{
+    float:left
+}
+.rightside{
+    margin-left:500px;
+}
+.products{
+    float:left;
+}
+.events{
+    margin-left:150px;
+    float:left;
+}
+.email{
+    margin-left:450px;
+}
+.about{
+    float:left;
+    margin-top:50px;
+}
