@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SimpleCakeController;
-
+use App\Http\Controllers\ProductImageController;
+use App\Models\ProductImage;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,10 @@ Route::post('/admin/simple-cake/create', [SimpleCakeController::class, 'store'])
 Route::post('/admin/simple-cake/', [SimpleCakeController::class, 'store']);
 
 Route::get('/admin/simple-cake/check-slug', [SimpleCakeController::class, 'checkSlug']);
+Route::get('/admin/product/edit/{product:product_slug}', [SimpleCakeController::class, 'edit']);
+Route::put('/admin/product/edit/{product:product_slug}', [SimpleCakeController::class, 'update']);
+Route::get('/admin/product/{product:product_slug}', [SimpleCakeController::class, 'show']);
+
+Route::delete('/admin/product/{product:product_slug}/images/{product_image}', [ProductImageController::class, 'destroy']);
+
 // Route::post('/admin/add-simple-cake', [ProductController::class, 'addSimpleCake']);

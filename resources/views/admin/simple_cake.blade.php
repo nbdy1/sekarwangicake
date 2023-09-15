@@ -90,12 +90,13 @@
 
                                 <td class="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                     <div class="flex items-center space-x-3.5">
-                                        <button class="">
+                                        <a href="{{ url('/admin/product/view/' . $product->product_slug) }}" class="">
                                             <i class="fa-solid fa-eye text-black dark:text-white hover:text-secondary"></i>
-                                        </button>
-                                        <button class="">
+                                        </a>
+                                        <a href="{{ url('/admin/product/edit/' . $product->product_slug) }}"
+                                            class="">
                                             <i class="fa-solid fa-pen text-black dark:text-white hover:text-success"></i>
-                                        </button>
+                                        </a>
                                         <button class="">
                                             <i class="fa-solid fa-trash text-black dark:text-white hover:text-danger"></i>
                                         </button>

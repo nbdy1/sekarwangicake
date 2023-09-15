@@ -1,6 +1,34 @@
 @extends('layouts.no_container')
 @section('content')
-    <div class="flex bg-primary justify-center p-3">
+    <div id="causeofoverflow" class="h-[90vh] pb-10 flex flex-col relative overflow-hidden">
+        <div class="absolute h-full bg-red-500 w-screen overflow-hidden cover rounded-b-[12rem]">
+            {{--
+        <img
+            src="https://picsum.photos/1000/500"
+            class="w-full"
+            alt=""
+            srcset=""
+        />
+        --}}
+            <img src="/images/kueindo.jpg" class="w-full overflow-hidden" alt="" srcset="" />
+        </div>
+        <div class="flex-col-reverse absolute px: z-10 left-0 bottom-28">
+            <h2 class="block max-w-lg text-white text-2xl bg-primary bg-opacity-75 p-5 rounded-3xl mt-5">
+                Join the fun of designing an Independence day related cake and win
+                prizes
+            </h2>
+            <p
+                class="block mt-5 text-xl rounded-full bg-secondary bg-opacity-75 border-primary border text-primary w-fit p-3">
+                Starting from July 20 to August 17
+            </p>
+            <div class="flex flex-row mt-10 gap-x-5">
+                <x-button>Join Now</x-button>
+                <x-button style="secondary">More Info</x-button>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="flex bg-primary justify-center p-3">
         <span data-text="UPCOMING EVENTS"
             class="text-6xl inline-flex uppercase rounded-xl bg-primary text-center dashed-shadow tracking-widest font-bold  font-baloo">
             UPCOMING EVENTS</span>
@@ -51,7 +79,7 @@
 
         </div>
 
-    </div>
+    </div> --}}
 @endsection
 
 

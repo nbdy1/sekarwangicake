@@ -1,8 +1,13 @@
 @extends('layouts.main')
+@section('custom-css')
+    <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="flex flex-col bg-white">
         <div
-            class="flex h-[90vh] rounded-b-[6rem] border-black overflow-hidden object-cover relative mx-4 md:mx-8 xl:mx-16 pb-10">
+            class="flex h-[90vh] rounded-b-[6rem] border-black overflow-hidden cover object-cover relative mx-4 md:mx-8 xl:mx-16">
             <div class="absolute bg-gradient-to-tr from-primary to-transparent w-full h-full via-transparent opacity-50">
             </div>
             <div class="absolute top-1/2 left-20">
@@ -26,6 +31,7 @@
             <img src="https://s3-alpha-sig.figma.com/img/08f6/df23/7304f97801e79347a3b2193c00fda742?Expires=1692576000&Signature=bxQfR1l1HIyuBN~Q1cA5~1w~GU~LDF340V0wesQSk~~NUVaRSycxrYaCPDRBeRctQzsB0w~ROTA372GUkT~Ufn4xp~gQcoeTdDLejmfmreWAWxBNy5zQrERk~0hCCSjTO0iYjzMw8i7NfXZJO0Epkn7cMlRJuN8sfS-ScNsUvggFIVkqs5sIRZsEqgjAqbvmm4487K5TD97jA3-Q8hg29S8lTKZCpM~FQdPfpfOD3N6VoIs1dgU5x90wSyyRR0KBNgok4mLay7pVxt5tUsZhqhRyI~jeJsCnISKpgPsDOIPAjQvYIF9vZxxp-0qdc4SMhkf4rliOrZIXoPqZ2ro8aA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                 class="object-cover w-full" />
         </div>
+        {{-- Model View Controller --}}
 
         <div class="overflow-hidden"> <svg id="visual" viewBox="0 0 1280 150" width="1280" height="150"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -63,13 +69,14 @@
                         Featured</h2>
                 </div>
             </div>
-            <div class="grid-cols-3 grid mx-4 md:mx-8 xl:mx-16 mb-10 relative z-10 shadow-2xl">
+            <div
+                class="grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid mx-4 md:mx-8 xl:mx-16 mb-10 relative z-10 shadow-2xl">
                 <div
                     class="w-full h-full row-span-2 rounded-l-xl border-black bg-cover bg-[url('/images/barbie_cake.jpg')] bg-center">
 
                 </div>
                 <div
-                    class="w-full h-[50vh]  bg-white border-black  bg-cover bg-[url('/images/cartoon_cake.jpg')] bg-center">
+                    class="w-full h-[50vh] rounded-t-xl sm:rounded-t-none  bg-white border-black  bg-cover bg-[url('/images/cartoon_cake.jpg')] bg-center">
                 </div>
                 <div
                     class="w-full h-[50vh] bg-white border-black rounded-tr-xl  bg-cover bg-[url('/images/cat_cake.jpg')] bg-center">
@@ -104,11 +111,76 @@
         </div>
 
 
-        <div class="flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
             <h2
                 class=" w-fit my-10 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-primary font-moca to-primary">
                 Testimonials</h2>
+            <div class="owl-theme loop owl-carousel">
+                {{-- <div class="item flex justify-center items-center h-[24rem] rounded-3xl overflow-hidden bg-secondary">
+                    <video width="100%" height="100%" controls>
+                        <source src="videos/jokowi.mp4" type="video/mp4">
+                        Failed to load video
+                    </video>
+                </div>
+                <div class="item flex justify-center items-center h-[24rem] rounded-3xl overflow-hidden bg-secondary">
+                    <video width="100%" height="100%" controls>
+                        <source src="videos/polres.mp4" type="video/mp4">
+                        Failed to load video
+                    </video>
+                </div> --}}
+                <div class="item relative pb-[56.25%] h-[34rem] rounded-3xl overflow-hidden bg-secondary">
+                    <iframe class="absolute top-0 left-0" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/Z2m0yRE3Yp4?si=5b7-_3-4PByB7OqB" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+
+                </div>
+                <div class="item relative pb-[56.25%] h-[34rem] rounded-3xl overflow-hidden bg-secondary">
+                    <iframe class="absolute top-0 left-0" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/Z2m0yRE3Yp4?si=5b7-_3-4PByB7OqB" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="item relative pb-[56.25%] h-[34rem] rounded-3xl overflow-hidden bg-secondary">
+                    <iframe class="absolute top-0 left-0" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/nKyJmDKUdaw?si=A9C9LWxua4cOM1oS" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                {{-- <div class="item flex justify-center items-center h-[24rem] rounded-3xl overflow-hidden bg-secondary">
+                    <iframe src="https://www.youtube.com/embed?v=Z2m0yRE3Yp4" frameborder="0"></iframe>
+
+                </div> --}}
+
+
+
+
+            </div>
+
         </div>
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $('.loop').owlCarousel({
+            center: true,
+            loop: true,
+            margin: 32,
+            responsive: {
+                600: {
+                    items: 4
+                }
+            }
+        });
+    </script>
+
     {{-- <p class=" h-[120vh] flex text-7xl font-bold font-baloo text-secondary justify-center items-center">Hello World</p> --}}
 @endsection

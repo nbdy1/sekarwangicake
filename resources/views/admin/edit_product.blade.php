@@ -1,17 +1,36 @@
 @extends('layouts.admin_main')
 @section('content')
     <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-
-        <h1 class="text-4xl text-primary font-bold mb-3">Add Simple Cake</h1>
+        @php
+            $productType = '';
+            
+            switch ($product->product_type) {
+                case 'simple_cake':
+                    $productType = 'Simple Cake';
+                    break;
+                case 'custom_cake':
+                    $productType = 'Custom Cake';
+                    break;
+                case 'pastry':
+                    $productType = 'Pastry';
+                    break;
+                // Add more cases for other product types if needed
+                default:
+                    $productType = 'Product'; // Default to a hash symbol if the type is not recognized
+                    break;
+            }
+        @endphp
+        <h1 class="text-4xl text-primary font-bold mb-3">Edit {{ $productType }}</h1>
         <form method="POST" enctype="multipart/form-data"
             class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             @csrf
+            @method('put')
             <div class="flex flex-col gap-5.5 p-6.5">
                 <div>
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Name
                     </label>
-                    <input autofocus value="{{ old('simpleCakeName') }}" required id="simpleCakeName" name="simpleCakeName"
+                    <input autofocus value="{{ $product->product_name }}" required id="simpleCakeName" name="simpleCakeName"
                         type="text" placeholder="Cheese Cake"
                         class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakeName') !border-danger @enderror" />
                     @error('simpleCakeName')
@@ -23,7 +42,7 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Slug
                     </label>
-                    <div class="flex flex-row gap-x-3"> <input value="{{ old('simpleCakeSlug') }}" required
+                    <div class="flex flex-row gap-x-3"> <input value="{{ $product->product_slug }}" required
                             id="simpleCakeSlug" name="simpleCakeSlug" type="text" placeholder="cheese-cake"
                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeSlug') !border-danger @enderror" />
                         <button id="generateSlug" href="#"
@@ -44,7 +63,7 @@
                     </label>
                     <textarea required name="simpleCakeDescription" rows="6"
                         placeholder="Indulge in the creamy decadence of our Cheese Cake. This delectable treat boasts velvety-smooth cheesecake with a generous layer of sweet cheese frosting. Topped with a delicate sprinkle of fine grated cheese, it's a perfect blend of sweet and tangy flavors. Ideal for any occasion, our Cheese Cake is a crowd-pleaser that will leave a lasting impression. Order yours today and savor the rich, cheesy goodness in every heavenly bite."
-                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeDescription') !border-danger @enderror">{{ old('simpleCakeDescription') }}</textarea>
+                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary  @error('simpleCakeDescription') !border-danger @enderror">{{ $product->product_description }}</textarea>
                     @error('simpleCakeDescription')
                         <div class="text-sm text-danger">{{ $message }}</div>
                     @enderror
@@ -54,7 +73,7 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Selling Price
                     </label>
-                    <input value="{{ old('simpleCakePrice') }}" required name="simpleCakePrice" type="text"
+                    <input value="{{ $product->product_selling_price }}" required name="simpleCakePrice" type="text"
                         placeholder="25000"
                         class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakePrice') !border-danger @enderror" />
                     @error('simpleCakePrice')
@@ -95,8 +114,8 @@
                         <label class="mt-5.5 mb-3 block font-medium text-sm text-black dark:text-white">
                             Pre-discounted Price
                         </label>
-                        <input :required="switcherToggle" value="{{ old('simpleCakeOriPrice') }}" name="simpleCakeOriPrice"
-                            type="text" placeholder="25000"
+                        <input :required="switcherToggle" value="{{ $product->product_original_price }}"
+                            name="simpleCakeOriPrice" type="text" placeholder="25000"
                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary @error('simpleCakeOriPrice') !border-danger @enderror" />
                         @error('simpleCakeOriPrice')
                             <div class="text-sm text-danger">{{ $message }}</div>
@@ -108,7 +127,14 @@
                     <label class="mb-3 block font-medium text-sm text-black dark:text-white">
                         Cake Images
                     </label>
-                    <input id="file-input" name="image[]" type="file" multiple="true" required
+                    @if (count($product->product_images) > 0)
+                        @foreach ($product->product_images as $index => $img)
+                            <img class="block max-h-35" src="{{ '/' . $img->image }}"
+                                alt="{{ $product->product_name . '-' . $index }}">
+                        @endforeach
+                    @endif
+                    {{-- Create Cake Image --}}
+                    {{-- <input id="file-input" name="image[]" type="file" multiple="true" required
                         class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-medium outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter dark:file:bg-white/30 dark:file:text-white file:py-3 file:px-5 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:focus:border-primary @error('image') !file:border-danger !border-danger @enderror @error('image.*') !file:border-danger !border-danger @enderror" />
                     @error('image')
                         <div class="text-sm text-danger">{{ $message }}</div>
@@ -118,12 +144,12 @@
                     @enderror
                     <div id="thumb-output" class="flex flex-row gap-5 py-2">
 
-                    </div>
+                    </div> --}}
                     {{-- <livewire:image-sort /> --}}
                 </div>
                 <button type="submit"
                     class="inline-flex items-center justify-center rounded-md bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                    Add Simple Cake
+                    Update {{ $productType }}
                 </button>
             </div>
         </form>

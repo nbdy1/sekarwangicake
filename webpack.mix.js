@@ -10,15 +10,33 @@ const mix = require("laravel-mix");
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.js('resources/js/app.js', 'public/js').js('resources/js/admin/admin.js', 'public/js/admin').js('resources/js/admin/components/chart-01.js', 'public/js/admin/components').js('resources/js/admin/components/chart-02.js', 'public/js/admin/components').js('resources/js/admin/components/chart-03.js', 'public/js/admin/components').js('resources/js/admin/components/chart-04.js', 'public/js/admin/components').postCss(
-    'resources/css/front.css',
-    'public/css',
-    [require('tailwindcss')('tailwind-front.config.js')]
-).postCss(
-    'resources/css/admin.css',
-    'public/css',
-    [require('tailwindcss')('tailwind-admin.config.js')]
-);
+mix.js("resources/js/app.js", "public/js")
+    .js("resources/js/admin/admin.js", "public/js/admin")
+    .js(
+        "resources/js/admin/components/chart-01.js",
+        "public/js/admin/components"
+    )
+    .js(
+        "resources/js/admin/components/chart-02.js",
+        "public/js/admin/components"
+    )
+    .js(
+        "resources/js/admin/components/chart-03.js",
+        "public/js/admin/components"
+    )
+    .js(
+        "resources/js/admin/components/chart-04.js",
+        "public/js/admin/components"
+    )
+    .js("resources/js/owl.carousel.min.js", "public/js")
+    .postCss("resources/css/front.css", "public/css", [
+        require("tailwindcss")("tailwind-front.config.js"),
+    ])
+    .postCss("resources/css/admin.css", "public/css", [
+        require("tailwindcss")("tailwind-admin.config.js"),
+    ])
+    .postCss("resources/css/owl.carousel.min.css", "public/css")
+    .postCss("resources/css/owl.theme.default.min.css", "public/css");
 
 // mix.browserSync('127.0.0.1:8000');
 // to here is the old one

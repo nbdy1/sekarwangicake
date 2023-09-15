@@ -84,9 +84,17 @@ class SimpleCakeController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($product_slug)
     {
-        //
+        try {
+            $product = Product::where('product_slug', $product_slug)->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            // Handle the case where the product is not found.
+            // For example, you can redirect to a 404 page or return an error message.
+            return abort(404); // This will return a 404 HTTP response.
+        }
+    
+        return view('admin.view_product', ['product' => $product]);
     }
 
     /**
@@ -95,10 +103,11 @@ class SimpleCakeController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    // TODO: make update controller, find product based on slug then product->update
+    public function edit($product_slug)
     {
-        $products = Product::findOrFail($id);
-        return view('edit')->with('products',$products);
+        $product = Product::where('product_slug', $product_slug)->first();
+        return view('admin.edit_product')->with('product',$product);
     }
 
     /**
@@ -108,9 +117,21 @@ class SimpleCakeController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    // public function update(Request $request, Product $product)
+    public function update(Request $request, $product_slug)
     {
-        //
+        $request->validate([
+            'simpleCakeName' => 'required|string|max:255',
+            'simpleCakeSlug' => 'required|string|unique:products,product_slug|max:255',
+            'simpleCakeDescription' => 'required|string',
+            'simpleCakePrice' => 'required|numeric|min:0',
+            'simpleCakeOriPrice' => 'nullable|numeric|min:0',
+            'image' => 'required|array|min:1',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the allowed file types and size as needed
+        ]);
+        
+        $product = Product::where('product_slug', $product_slug)->first();
+        $product->product_name = $request->simpleCakeName;
     }
 
     /**

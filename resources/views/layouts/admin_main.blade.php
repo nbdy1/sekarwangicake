@@ -10,7 +10,7 @@
     </title>
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <script defer src="{{ asset('js/admin/admin.js') }}"></script>
-
+    @livewireStyles
 </head>
 
 <body x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -42,6 +42,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </div>
         <!-- ===== Content Area End ===== -->
     </div>
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
     <!-- ===== Page Wrapper End ===== -->
 </body>
 

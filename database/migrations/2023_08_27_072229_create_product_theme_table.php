@@ -16,10 +16,10 @@ class CreateProductThemeTable extends Migration
     Schema::create('product_theme', function (Blueprint $table) {
         $table->unsignedBigInteger('product_id');
         $table->unsignedBigInteger('theme_id');
-        $table->timestamps();
-
         $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
         $table->foreign('theme_id')->references('theme_id')->on('themes')->onDelete('cascade');
+        $table->timestamps();
+
     });
 }
     /**

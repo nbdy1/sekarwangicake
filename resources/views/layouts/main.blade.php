@@ -15,6 +15,8 @@
 
     <!-- TailwindCSS -->
     <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+
+    @yield('custom-css')
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 

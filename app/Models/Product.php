@@ -19,10 +19,10 @@ class Product extends Model
     protected $primaryKey = 'product_id';
 
 
-    public function themes()
-    {
-        return $this->belongsToMany(Theme::class, 'product_theme', 'product_id', 'theme_id');
-    }
+    // public function themes()
+    // {
+    //     return $this->belongsToMany(Theme::class, 'product_theme', 'product_id', 'theme_id');
+    // }
 
     public function product_images()
     {

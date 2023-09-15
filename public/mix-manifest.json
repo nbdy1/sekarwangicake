@@ -5,6 +5,9 @@
     "/js/admin/components/chart-02.js": "/js/admin/components/chart-02.js",
     "/js/admin/components/chart-03.js": "/js/admin/components/chart-03.js",
     "/js/admin/components/chart-04.js": "/js/admin/components/chart-04.js",
+    "/js/owl.carousel.min.js": "/js/owl.carousel.min.js",
     "/css/admin.css": "/css/admin.css",
-    "/css/front.css": "/css/front.css"
+    "/css/front.css": "/css/front.css",
+    "/css/owl.theme.default.min.css": "/css/owl.theme.default.min.css",
+    "/css/owl.carousel.min.css": "/css/owl.carousel.min.css"
 }

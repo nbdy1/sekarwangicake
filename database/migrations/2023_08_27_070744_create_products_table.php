@@ -20,7 +20,9 @@ class CreateProductsTable extends Migration
             $table->text('product_description');
             $table->string('product_type'); // 'simplecake' or 'pastry'
             $table->unSignedBigInteger('product_selling_price'); // 'simplecake' or 'pastry'
+            $table->boolean('is_discount')->default(0); // '0 false' or '1 true'
             $table->unSignedBigInteger('product_original_price')->nullable(); // 'simplecake' or 'pastry'
+            $table->boolean('is_published')->default(0);
             $table->timestamps();
         });
     }
