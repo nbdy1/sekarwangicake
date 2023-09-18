@@ -1,20 +1,48 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\Theme;
+use App\Models\ProductImage;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 class Product extends Model
 {
-    protected $table = 'Product';
+    use HasFactory, Sluggable;
+
     protected $fillable = [
-        'product_description', 'product_pictures', 'product_type',
-        'product_slug', 'product_price', 'product_themes'
+        'product_description', 'product_name', 'product_type',
+    'product_selling_price',  'product_original_price', 'product_slug'
     ];
+
+    protected $primaryKey = 'product_id';
+
 
     public function themes()
     {
-        return $this->belongsToMany(Theme::class, 'product_themes')
-                    ->withPivot('theme_names');
+        return $this->belongsToMany(Theme::class, 'product_theme', 'product_id', 'theme_id');
     }
+
+    public function product_images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id', 'product_id');
+    }
+
+    public function cake_testimonials()
+    {
+        return $this->hasOne(Product::class, 'product_id', 'product_id');
+    }
+    
+
+    public function sluggable(): array
+    {
+        return [
+            'product_slug' => [
+                'source' => 'product_name'
+            ]
+        ];
+    }
+    
+
 }
