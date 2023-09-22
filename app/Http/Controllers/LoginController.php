@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< Updated upstream
 use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -13,6 +16,7 @@ class LoginController extends Controller
             'title' => 'Login'
         ]);
     }
+<<<<<<< Updated upstream
 
     public function authenticate(Request $request)
     {
@@ -28,4 +32,6 @@ class LoginController extends Controller
         };
         return back()->with('loginError', 'Login failed!');
     }
+=======
+>>>>>>> Stashed changes
 }

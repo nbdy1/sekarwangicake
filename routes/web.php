@@ -38,5 +38,12 @@ Route::get('/about', function () {
     return view('about');
 });
 
+<<<<<<< Updated upstream
+=======
+Route::get('/login', function () {
+    return view('login');
+});
+
+>>>>>>> Stashed changes
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
